@@ -9,12 +9,13 @@ function Content() {
     <div className={`page ${theme}`}>
       <div className="content-box">
         <h1>{theme === "light" ? "☀️ Light Mode" : "🌙 Dark Mode"}</h1>
-        <p>
-          switch between calm light and
-          deep dark mode instantly..
-        </p>
+        <p>switch between calm light and deep dark mode instantly..</p>
         <button
-          onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+          onClick={() => {
+            const newTheme = theme === "light" ? "dark" : "light";
+            setTheme(newTheme);
+            localStorage.setItem("theme", newTheme);
+          }}
           className="toggle-btn"
         >
           <p>Toggle Theme</p>
